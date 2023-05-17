@@ -43,6 +43,7 @@ selected_movie_name = st.selectbox(" "
     , movies['title'].values,
     label_visibility='collapsed')
 
+# Button to recommend
 if st.button("Recommend"):
     names, posters = recommend(selected_movie_name)
     
