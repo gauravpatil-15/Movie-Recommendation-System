@@ -3,6 +3,13 @@ import pickle
 import pandas as pd
 import requests  # To hit the API
 
+st.set_page_config(
+    page_title="Movie Recommender",
+    page_icon="🎦",
+    layout="wide",
+    # initial_sidebar_state="expanded",
+)
+
 
 # Loading movies as dictionary & also similarity matrix
 movie_dict = pickle.load(open('movie_dict.pkl', 'rb'))
@@ -15,7 +22,7 @@ def fetch_poster(movie_id) :
     respose = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US'.format(movie_id))
     data = respose.json()
     
-    # data['poster_path'] was not the full image path..
+    #full poster path
     return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
 
 
@@ -36,9 +43,9 @@ def recommend(movie):
     # Returning both movie names and their posters
     return recommended_movies, recommended_movie_poster
 
-st.title("Movie Recommender System")
+st.title("📽️ Movie Recommender System")
 
-st.text('Enter the movie name for which you want similar suggestions..')
+st.text(' * Enter the movie name for which you want similar suggestions..')
 selected_movie_name = st.selectbox(" "
     , movies['title'].values,
     label_visibility='collapsed')
