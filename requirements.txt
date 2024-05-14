@@ -1,4 +1,6 @@
 pandas==1.4.4
 Requests==2.31.0
 streamlit>=1.15.2,<1.22.0
-pickle
+pickle-mixin
+numpy
+
