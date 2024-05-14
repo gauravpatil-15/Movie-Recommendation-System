@@ -23,6 +23,7 @@ def fetch_poster(movie_id) :
     data = respose.json()
     
     #full poster path
+    print(data)
     return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
 
 
